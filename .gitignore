@@ -1,0 +1,19 @@
+# 依赖与构建产物
+node_modules/
+*.tgz
+
+# 安装/卸载脚本留下的备份
+package.json.bak-*
+*.bak
+
+# 编辑器与系统杂物
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 日志
+*.log
+npm-debug.log*
+pnpm-debug.log*

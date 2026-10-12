@@ -1,0 +1,51 @@
+{
+  "name": "dsh-idle-alert",
+  "version": "0.1.0",
+  "description": "审批/请求提醒插件",
+  "type": "module",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "assets",
+    "cordis.patch.yml",
+    "scripts",
+    "README.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "NOTICE.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "test": "node test/alert.test.mjs && node test/host.test.mjs",
+    "test:client": "node test/alert.test.mjs",
+    "test:host": "node test/host.test.mjs"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "dsh-plugin",
+    "notification",
+    "reminder",
+    "approval",
+    "idle",
+    "audio"
+  ],
+  "author": "Wyxmz <Wyxmz@users.noreply.github.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wyxmz/dsh-prompt.git"
+  },
+  "homepage": "https://github.com/Wyxmz/dsh-prompt#readme",
+  "bugs": {
+    "url": "https://github.com/Wyxmz/dsh-prompt/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

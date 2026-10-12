@@ -1,0 +1,16 @@
+{
+  "_note": "提醒音来源。解析顺序：① path（绝对路径，可选）② windowsMediaDir/file（系统音效目录）③ 插件 assets/file。宿主的 /dsh-idle-alert/sound 路由每次请求都重读本文件，改完刷新页面即可，不必重启 DSH。",
+  "_current": "alert.m4a —— 插件自带的默认提醒音（55.97 秒 / AAC 48 kHz 立体声）。峰值已是 0 dB（满刻度），整体均值 -23.9 dB，最响的一段在 40~50 秒（约 -17 dB），前 40 秒偏轻（约 -30 dB）。",
+  "_how_to_replace": "想换成自己的音效：直接加一行 \"path\": \"D:\\\\my-sounds\\\\alert.wav\"（绝对路径，注意 JSON 里反斜杠要写两个），或把文件放进 windowsMediaDir 并改 file 字段。只接受音频扩展名（wav/mp3/ogg/oga/m4a/flac/aac）；都找不到时回退到插件自带的 alert.m4a。",
+  "_examples": [
+    "alert.m4a —— 插件自带默认音（当前使用）",
+    "ding.wav / Alarm01.wav —— 任意 Windows 系统音效（在 windowsMediaDir 下查找）",
+    "D:\\\\my-sounds\\\\alert.wav —— 用 path 指定任意绝对路径"
+  ],
+  "windowsMediaDir": "C:\\Windows\\Media",
+  "file": "alert.m4a",
+  "_gain_note": "整体增益倍率。默认音频峰值已经是 0dB（满刻度），所以 1.0 就是安全上限；调大只会削波，不会更响。",
+  "gain": 1.0,
+  "_idle_note": "空闲多久后开始播放（毫秒）。20000 = 20 秒。改完刷新页面即可生效；正在计时的那一轮不受影响，下一轮挂起才用新值。",
+  "idleMs": 20000
+}

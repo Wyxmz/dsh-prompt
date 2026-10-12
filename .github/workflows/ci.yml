@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: 单元测试 (Node ${{ matrix.node-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node-version: ['18', '20', '22']
+        exclude:
+          # Windows 上只跑一个 Node 版本，省 CI 时间
+          - os: windows-latest
+            node-version: '18'
+          - os: windows-latest
+            node-version: '20'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # 本项目零运行时依赖，不需要 npm install
+      - name: 客户端逻辑单测
+        run: node test/alert.test.mjs
+
+      - name: 宿主端单测
+        run: node test/host.test.mjs
